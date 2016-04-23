@@ -45,3 +45,7 @@ group :development do
   gem 'spring'
 end
 
+gem 'acts-as-taggable-on'
+
+gem 'acts-as-taggable-on'
+
