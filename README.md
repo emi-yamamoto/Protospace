@@ -9,7 +9,7 @@
 - email :string
 - password :string
 - member :string
-- profile :string
+- profile :text
 - works :string
 
 ## Prototypes
