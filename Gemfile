@@ -46,3 +46,6 @@ group :development do
 end
 
 gem 'acts-as-taggable-on'
+
+gem 'acts-as-taggable-on'
+
