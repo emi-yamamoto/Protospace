@@ -41,7 +41,7 @@
 
 ### Column
 - id :integer
-- status :string [CarrierWave]
+- status :integer [CarrierWave]
 - prototype_id :integer
 
 ## Likes
