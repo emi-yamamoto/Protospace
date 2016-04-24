@@ -11,6 +11,7 @@
 - member :string
 - profile :text
 - works :string
+- image :string
 
 ## Prototypes
 ### Asosiations
@@ -24,7 +25,7 @@
 - concept :text
 - user_id :integer
 
-## comments
+## Comments
 ### Asosiations
     belongs _to [prototype, user]
 
@@ -40,6 +41,6 @@
 
 ### Column
 - id :integer
-- name :string
+- status :string
 - prototype_id :integer
 
