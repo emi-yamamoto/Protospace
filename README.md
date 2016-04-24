@@ -1,6 +1,6 @@
 # DB DSEIGN
 ## Users
-### Asosiations
+### Associations
     has_many [tweets, comments, likes]
 
 ### Column
@@ -14,7 +14,7 @@
 - image :string [CarrierWave]
 
 ## Prototypes
-### Asosiations
+### Associations
     belongs_to :user
     has_many [comments, images, likes]
 
@@ -27,7 +27,7 @@
 - likes_count :integer
 
 ## Comments
-### Asosiations
+### Associations
     belongs _to [prototype, user]
 
 ### Column
@@ -37,7 +37,7 @@
 - prototype_id :integer
 
 ## Images
-### Asosiations
+### Associations
     belongs_to :prototype
 
 ### Column
@@ -46,7 +46,7 @@
 - prototype_id :integer
 
 ## Likes
-### Asosiations
+### Associations
     belongs_to :prototype
 
 ### Column
