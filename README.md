@@ -1,7 +1,7 @@
 # DB DSEIGN
 ## Users
 ### Asosiations
-    has_many [tweets, comments]
+    has_many [tweets, comments, likes]
 
 ### Column
 - id :integer
