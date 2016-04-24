@@ -6,12 +6,12 @@
 ### Column
 - id :integer
 - name :string
-- email :string
-- password :string
+- email :string [devise]
+- password :string [devise]
 - member :string
 - profile :text
 - works :string
-- image :string
+- image :string [CarrierWave]
 
 ## Prototypes
 ### Asosiations
@@ -42,7 +42,7 @@
 
 ### Column
 - id :integer
-- status :string
+- status :string [CarrierWave]
 - prototype_id :integer
 
 ## Likes
