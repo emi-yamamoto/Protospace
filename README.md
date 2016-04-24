@@ -15,8 +15,8 @@
 
 ## Prototypes
 ### Asosiations
-    belongs _to :user
-    has_many [comments, images]
+    belongs_to :user
+    has_many [comments, images, likes]
 
 ### Column
 - id :integer
@@ -37,10 +37,19 @@
 
 ## Images
 ### Asosiations
-    belongs _to :prototype
+    belongs_to :prototype
 
 ### Column
 - id :integer
 - status :string
+- prototype_id :integer
+
+## Likes
+### Asosiations
+    belongs_to :prototype
+
+### Column
+- id :integer
+- user_id :integer
 - prototype_id :integer
 
