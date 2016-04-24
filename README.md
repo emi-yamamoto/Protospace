@@ -24,6 +24,7 @@
 - catch_copy :string
 - concept :text
 - user_id :integer
+- likes_count :integer
 
 ## Comments
 ### Asosiations
