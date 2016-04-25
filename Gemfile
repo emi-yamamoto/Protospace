@@ -45,3 +45,9 @@ group :development do
   gem 'spring'
 end
 
+gem 'haml-rails'
+
+group :development do
+  gem 'erb2haml'
+end
+
