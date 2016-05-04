@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :set_user, only: [:edit, :show]
+  before_action :authenticate_user!, only: :update
 
   def index
   end
@@ -10,10 +11,8 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
-    if user.id == current_user.id
-      user.update(user_params)
-      redirect_to :root
-    end
+    user.update(user_params)
+    redirect_to :root
   end
 
   def show
