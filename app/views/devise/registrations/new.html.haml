@@ -11,13 +11,13 @@
             .user-image.col-md-2
               %button.btn.btn-primary Add image
               %input{type: "file"}/
-          = f.email_field :email, autofocus: true, class:'user-email', placeholder: "E-Mail"
+          = f.email_field :email, class:'user-email', placeholder: "E-Mail"
           = f.password_field :password, autocomplete: "off", class:'user-password', placeholder: "Password"
         .col-md-12
           %h4 Member of
           .user-user-member.row
             .user-name.col-md-12
-              = f.text_field :member, autofocus: true, placeholder: "Member"
+              = f.text_field :member, placeholder: "Member"
           %h4 Profile
           .user-user-profile.row
             .user-name.col-md-12
