@@ -1,0 +1,17 @@
+.container.form-signin
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    %h2.form-signin-heading Please sign in
+    = f.label :email, class: "sr-only", for: "inputEmail"
+    = f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email address", required: ""
+    = f.label :password, class: "sr-only", for: "inputPassword"
+    = f.password_field :password, autocomplete: "off", class:'form-control', placeholder: "Password", required: ""
+    - if devise_mapping.rememberable?
+      .checkbox
+        = f.check_box :remember_me, value: "remember-me"
+        = f.label :remember_me
+    .actions
+      = f.submit "SIGN IN", class: 'btn btn-lg btn-primary btn-block'
+  .text-center
+    %p
+      Not a member?
+      = link_to 'Sign up now', new_user_registration_path

@@ -1,0 +1,31 @@
+.container.user-new
+  = form_for(@user) do |f|
+    .col-md-8.col-md-offset-2
+      %header.row.user-nav.row
+        .col-md-12
+          %h2 Edit Profile
+          .user-name_image.row
+            .user-name.col-md-10
+              = f.text_field :name, autofocus: true, placeholder: "Username", required: true
+            .user-image.col-md-2
+              %button.btn.btn-primary Change image
+              %input{type: "file"}/
+          = f.email_field :email, autofocus: true, class:'user-email', placeholder: "E-Mail"
+
+        .col-md-12
+          %h4 Member of
+          .user-user-member.row
+            .user-name.col-md-12
+              = f.text_field :member, autofocus: true, placeholder: "Member"
+          %h4 Profile
+          .user-user-profile.row
+            .user-name.col-md-12
+              = f.text_area :profile, cols: "30", rows: "4", placeholder: "Profile" do
+                = @user.profile
+          %h4 Works
+          .user-name_image.row
+            .user-name.col-md-12
+              = f.text_area :works, cols: "30", rows: "4", placeholder: "Works" do
+                = @user.works
+      .row.text-center.user-btn
+        = f.submit "Save", class: 'btn btn-lg btn-primary btn-block'
