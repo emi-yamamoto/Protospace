@@ -1,6 +1,6 @@
 - flash.each do |key, value|
-  %div{class: :"alert alert-#{key}"}
-    = link_to "×", "#", "data-dismiss": :"alert", class: :"close"
-    %ul
-      %li
-        = value
+  - if value == notice
+    = content_tag(:div, value, class: "alert alert-success")
+  - else
+    = content_tag(:div, value, class: "alert alert-error")
+
