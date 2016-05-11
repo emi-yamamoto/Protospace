@@ -13,6 +13,7 @@ gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'pry-rails'
+gem 'carrierwave'
 
 
 group :development, :test do
