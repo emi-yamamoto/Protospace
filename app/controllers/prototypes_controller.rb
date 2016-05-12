@@ -6,6 +6,8 @@ class PrototypesController < ApplicationController
   end
 
   def new
+    @prototype = Prototype.new
+    @prototype.images.build
   end
 
   def show
