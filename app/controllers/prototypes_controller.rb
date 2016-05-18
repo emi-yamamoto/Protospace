@@ -7,13 +7,17 @@ class PrototypesController < ApplicationController
 
   def new
     @prototype = Prototype.new
-
-    3.times {@prototype.images.build}
+    @prototype.images.build
   end
 
   def create
-    Prototype.create(prototype_params)
-    redirect_to action: :index
+    @prototype = Prototype.new(prototype_params)
+
+    if @prototype.save
+      redirect_to root_path, notice: 'Saved prototype successfully'
+    else
+      render :new
+    end
   end
 
   def show
@@ -25,6 +29,11 @@ class PrototypesController < ApplicationController
 
   private
   def prototype_params
-    params.require(:prototype).permit(:title, :catch_copy, :concept, images_attributes: [:image, :status]).merge(user_id: current_user.id)
+    params.require(:prototype).permit(
+      :title,
+      :catch_copy,
+      :concept,
+      images_attributes: [:id, :name, :status]
+    ).merge(user_id: current_user.id)
   end
 end

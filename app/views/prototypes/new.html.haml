@@ -1,4 +1,8 @@
 .container.proto-new
+  - if @prototype.errors.any?
+    %div{ class: "alert alert-error" }
+      - @prototype.errors.full_messages.each do |msg|
+        = msg
   = form_for @prototype do |f|
     .col-md-8.col-md-offset-2
       %header.row.user-nav.row
@@ -8,15 +12,15 @@
         .col-md-12
           .cover-image-upload
             = f.fields_for :images do |images_form|
-              = images_form.file_field :id, class: "cover-image-upload"
+              = images_form.file_field :name, class: "cover-image-upload"
               = images_form.hidden_field :status, value: "main"
         .col-md-12
           %ul.proto-sub-list.list-group
-            - @prototype.images.each do |image|
+            - 3.times do
               %li.list-group-item.col-md-4
                 .image-upload
-                  = f.fields_for :images, image do |images_form|
-                    = images_form.file_field :id, class: "image-upload"
+                  = f.fields_for :images do |images_form|
+                    = images_form.file_field :name, class: "image-upload"
                     = images_form.hidden_field :status, value: "sub"
           .row.proto-description
           .col-md-12
