@@ -16,7 +16,7 @@ class PrototypesController < ApplicationController
     if @prototype.save
       redirect_to root_path, notice: 'Saved prototype successfully'
     else
-      render :new
+      redirect_to new_prototype_path, alert: "All forms can't be blank"
     end
   end
 
