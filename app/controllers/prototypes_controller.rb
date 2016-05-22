@@ -23,6 +23,7 @@ class PrototypesController < ApplicationController
 
   def show
     @prototype = Prototype.find(params[:id])
+    @sub_images = @prototype.images.sub
   end
 
   def move_to_index

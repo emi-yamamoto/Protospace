@@ -21,12 +21,9 @@
       = image_tag(@prototype.image.name, class: 'img-responsive')
     .col-md-3
       %ul.proto-sub-list.list-group
-        %li.list-group-item
-          = image_tag(@prototype.images.sub.first.name, class: 'img-responsive')
-        %li.list-group-item
-          = image_tag(@prototype.images.sub.second.name, class: 'img-responsive')
-        %li.list-group-item
-          = image_tag(@prototype.images.sub.third.name, class: 'img-responsive')
+        - @sub_images.each do |sub_image|
+          %li.list-group-item
+            = image_tag(sub_image.name, class: 'img-responsive')
   .row.proto-description
     .col-md-3
       %h4 Catch Copy
