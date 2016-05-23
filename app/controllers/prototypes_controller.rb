@@ -3,7 +3,7 @@ class PrototypesController < ApplicationController
   before_action :move_to_index, except: :index
 
   def index
-    @prototypes = Prototype.includes(:user, :image).order('created_at DESC').page(params[:page]).per(5)
+    @prototypes = Prototype.includes(:user, :main_image).order('created_at DESC').page(params[:page]).per(5)
   end
 
   def new

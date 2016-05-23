@@ -1,7 +1,7 @@
 class Prototype < ActiveRecord::Base
   belongs_to :user
   has_many :images, dependent: :destroy
-  has_one :image, -> { where(status: 0) }
+  has_one :main_image, -> { where(status: Image.statuses[:main]) }, class_name: "Image"
 
   accepts_nested_attributes_for :images
 
