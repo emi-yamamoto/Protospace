@@ -14,6 +14,8 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'pry-rails'
 gem 'carrierwave'
+gem 'rmagick'
+gem 'kaminari'
 
 
 group :development, :test do

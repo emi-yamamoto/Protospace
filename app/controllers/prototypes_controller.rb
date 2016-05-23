@@ -3,6 +3,7 @@ class PrototypesController < ApplicationController
   before_action :move_to_index, except: :index
 
   def index
+    @prototypes = Prototype.includes(:user, :main_image).order('created_at DESC').page(params[:page]).per(5)
   end
 
   def new
@@ -21,6 +22,8 @@ class PrototypesController < ApplicationController
   end
 
   def show
+    @prototype = Prototype.find(params[:id])
+    @sub_images = @prototype.images.sub
   end
 
   def move_to_index
