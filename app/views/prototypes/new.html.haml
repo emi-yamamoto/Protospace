@@ -8,7 +8,7 @@
     .col-md-8.col-md-offset-2
       %header.row.user-nav.row
         .col-md-12
-          = f.text_field :title, autofocus: true, placeholder: "Title", class: "proto-new-title"
+          = f.text_field :title, autofocus: true, placeholder: "Title", class: "proto-new-title", required: true
       .row
         .col-md-12
           .cover-image-upload
@@ -25,9 +25,9 @@
                     = images_form.hidden_field :status, value: "sub"
           .row.proto-description
           .col-md-12
-            = f.text_field :catch_copy, placeholder: "Catch Copy"
+            = f.text_field :catch_copy, placeholder: "Catch Copy", required: true
           .col-md-12
-            = f.text_field :concept, cols: "30", rows: "4", placeholder: "Concept"
+            = f.text_field :concept, cols: "30", rows: "4", placeholder: "Concept", required: true
           .col-md-12
             %h4 Tag List
             .row
