@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @prototypes = Prototype.includes(:user).order('created_at DESC').page(params[:page]).per(5)
+    @prototypes = @user.prototypes.order('created_at DESC').page(params[:page]).per(5)
   end
 
   private
