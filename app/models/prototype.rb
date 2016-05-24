@@ -4,7 +4,7 @@ class Prototype < ActiveRecord::Base
   has_one  :main_image, -> { where(status: Image.statuses[:main]) }, class_name: "Image"
   has_many :sub_images, -> { where(status: Image.statuses[:sub]) }, class_name: "Image"
 
-  accepts_nested_attributes_for :images
+  accepts_nested_attributes_for :images, reject_if: proc { |attributes| attributes['name'].blank? }
 
   validates :catch_copy,
             :concept,
