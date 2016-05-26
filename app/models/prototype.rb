@@ -6,6 +6,13 @@ class Prototype < ActiveRecord::Base
 
   accepts_nested_attributes_for :images, reject_if: proc { |attributes| attributes['name'].blank? }
 
+  MAXIMUM_SUB_IMAGES_NUM = 3
+  def sub_image
+    sub_images = images.sub
+    MAXIMUM_SUB_IMAGES_NUM.times { |i| sub_images[i] ||= images.build(status: "sub") }
+    sub_images
+  end
+
   validates :catch_copy,
             :concept,
             :title, presence: true

@@ -28,7 +28,7 @@ class PrototypesController < ApplicationController
 
   def edit
     @main_image = @prototype.main_image
-    @sub_images = @prototype.sub_images
+    @sub_images = @prototype.sub_image
   end
 
   def update
