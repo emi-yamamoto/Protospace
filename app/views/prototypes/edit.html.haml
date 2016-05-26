@@ -12,17 +12,16 @@
       .row
         .col-md-12
           .cover-image-upload
-            = f.fields_for :images do |images_form|
+            = f.fields_for :images, @main_image do |images_form|
               = images_form.file_field :name, class: "cover-image-upload"
               = images_form.hidden_field :status, value: "main"
         .col-md-12
           %ul.proto-sub-list.list-group
-            - 3.times do
+            = f.fields_for :images, @sub_images do |images_form|
               %li.list-group-item.col-md-4
                 .image-upload
-                  = f.fields_for :images do |images_form|
-                    = images_form.file_field :name, class: "image-upload"
-                    = images_form.hidden_field :status, value: "sub"
+                  = images_form.file_field :name, class: "image-upload"
+                  = images_form.hidden_field :status, value: "sub"
           .row.proto-description
           .col-md-12
             = f.text_field :catch_copy, placeholder: "Catch Copy", required: true
