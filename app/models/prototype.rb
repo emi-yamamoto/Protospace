@@ -14,8 +14,8 @@ class Prototype < ActiveRecord::Base
     sub_images
   end
 
-  def like_user(user_id)
-    likes.find_by(user_id: user_id)
+  def liked_by?(user)
+    likes.find_by(user_id: user)
   end
 
   validates :catch_copy,
