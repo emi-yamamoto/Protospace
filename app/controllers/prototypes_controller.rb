@@ -24,7 +24,7 @@ class PrototypesController < ApplicationController
 
   def show
     @sub_images = @prototype.images.sub
-    @like  = Like.find_by(user_id: current_user.id, prototype_id: params[:id])
+    @like  = @prototype.likes.find_by(user_id: current_user)
   end
 
   def edit
