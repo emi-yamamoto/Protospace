@@ -14,7 +14,7 @@
             = link_to "by #{@prototype.user.name}", user_path(@prototype.user.name), method: :get
             %span.degree= @prototype.user.works
 
-    .col-md-6.text-right
+    .col-md-6.text-right#js-like-buttons
       = render partial: "likes/like", locals: { prototype: @prototype, like: @like }
 
   .row
