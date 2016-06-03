@@ -25,6 +25,8 @@ class PrototypesController < ApplicationController
   def show
     @sub_images = @prototype.images.sub
     @like  = @prototype.likes.find_by(user_id: current_user)
+    @comments = @prototype.comments
+    @comment = Comment.new(prototype_id: @prototype_id)
   end
 
   def edit
