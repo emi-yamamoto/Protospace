@@ -1,0 +1,3 @@
+$("#js-comments").html("<%= j(render partial: 'prototypes/comments/comment', collection: @comments, locals: { prototype: @protoytpe, comment: @comment }) %>")
+$("#comment_text").val("");
+$('#comments-count').html("(#{ @prototype.comments.count })");
