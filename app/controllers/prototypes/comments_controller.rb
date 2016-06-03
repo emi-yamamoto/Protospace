@@ -9,7 +9,7 @@ class Prototypes::CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to prototype_path, notice: 'Deleted comment successfully'
+    redirect_to @prototype, notice: 'Deleted comment successfully'
   end
 
   private
