@@ -8,4 +8,4 @@
       %p
         = comment.text
       - if comment.user_id == current_user.id
-        = link_to "DELETE", prototype_comment_path(comment, prototype_id: comment.prototype.id), method: :delete, class: "btn btn-xs btn-primary navbar-btn"
+        = link_to "DELETE", prototype_comment_path(comment, prototype_id: comment.prototype.id), method: :delete, class: "btn btn-xs btn-primary navbar-btn", remote: true
