@@ -25,7 +25,7 @@ class PrototypesController < ApplicationController
   def show
     @sub_images = @prototype.images.sub
     @like  = @prototype.likes.find_by(user_id: current_user)
-    @comments = @prototype.comments
+    @comments = @prototype.comments.includes(:user, :prototype)
     @comment = Comment.new(prototype_id: @prototype_id)
   end
 
