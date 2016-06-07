@@ -7,8 +7,7 @@ class Prototypes::CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
-    @comment.destroy
+    Comment.find(params[:id]).destroy
     @comments = @prototype.comments
     @prototype = Prototype.find(params[:prototype_id])
   end
