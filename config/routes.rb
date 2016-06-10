@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'prototypes#index'
 
-  resources :popular, only: :index, module: :prototypes, path: 'prototypes/popular'
+  resources :popular, only: :index, module: :prototypes
   resources :users, only: [:index, :edit, :show, :update]
 
   resources :prototypes do
