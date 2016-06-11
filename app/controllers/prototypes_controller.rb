@@ -21,6 +21,7 @@ class PrototypesController < ApplicationController
     else
       redirect_to new_prototype_path, alert: "All forms can't be blank"
     end
+    binding.pry
   end
 
   def show
@@ -60,7 +61,7 @@ class PrototypesController < ApplicationController
       :concept,
       :user_id,
       images_attributes: [:id, :name, :status]
-    )
+    ).merge(tag_list: params[:prototype][:tag])
   end
 
   def set_prototype
