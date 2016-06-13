@@ -4,7 +4,7 @@ class PrototypesController < ApplicationController
   before_action :set_prototype, only: [:edit, :show, :update, :destroy]
 
   def index
-    @prototypes = Prototype.includes(:user, :main_image).order('created_at DESC').page(params[:page]).per(5)
+    @prototypes = Prototype.includes(:user, :main_image).order('created_at DESC').page(params[:page]).per(20)
     @type = 'newest'
   end
 
@@ -21,7 +21,6 @@ class PrototypesController < ApplicationController
     else
       redirect_to new_prototype_path, alert: "All forms can't be blank"
     end
-    binding.pry
   end
 
   def show
