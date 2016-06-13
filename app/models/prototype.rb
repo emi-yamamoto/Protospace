@@ -3,14 +3,12 @@ class Prototype < ActiveRecord::Base
   has_many :images, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :tags, dependent: :destroy
   has_one  :main_image, -> { where(status: Image.statuses[:main]) }, class_name: "Image"
   has_many :sub_images, -> { where(status: Image.statuses[:sub]) }, class_name: "Image"
 
   accepts_nested_attributes_for :images, reject_if: proc { |attributes| attributes['name'].blank? }
 
   acts_as_taggable
-  acts_as_taggable_on :prototypes
   acts_as_ordered_taggable_on :prototypes
 
   MAXIMUM_SUB_IMAGES_NUM = 3
