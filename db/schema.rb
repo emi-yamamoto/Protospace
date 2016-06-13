@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(version: 20160611060850) do
     t.string   "catch_copy",  limit: 255
     t.text     "concept",     limit: 65535
     t.integer  "likes_count", limit: 4,     default: 0
-    t.text     "tag_list",    limit: 65535
     t.integer  "user_id",     limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
