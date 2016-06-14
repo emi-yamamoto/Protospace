@@ -596,8 +596,36 @@ body {
 }
 
 .btn.btn-default.btn-tag {
-  background-color: white;
-  height: 50px;
-  line-height: 30px;
-  min-width: 360px
+    background: #EEE;
+    border: 1px solid #DDD;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    padding: 10px 0;
+    min-width: 360px;
+    font-size: 80%;
+    color: gray;
 }
+
+.btn.btn-default.btn-tag:hover {
+  background-color: #D3D3D3;
+  color: black;
+}
+
+.btn.btn-default.btn-count {
+  background-color: #DCDCDC;
+  height: 30px;
+  line-height: 10px;
+  min-width: 360px;
+  color: gray;
+}
+
+.btn.btn-default.btn-count:hover {
+  background-color: gray;
+  color: white;
+}
+
+.label-tag {
+  margin: -7px 0 0 0;
+}
+
