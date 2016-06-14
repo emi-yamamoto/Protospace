@@ -1,0 +1,4 @@
+.col-md-4
+  = link_to tag.name, tag_path(tag.id), class: "btn btn-default btn-tag"
+  .label-tag
+    = link_to "#{tag.taggings_count} Projects", tag_path(tag.id), class: "btn btn-default btn-count"

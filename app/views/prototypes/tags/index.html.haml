@@ -1,0 +1,9 @@
+.jumbotron
+  .container.text-center
+    = image_tag("header_logo.png", alt: "PROTO TYPE - SHARE THE PROTOTYPE", height: "73px")
+.container
+  .row
+    %h2.tag-list
+      Tag list
+      %ul
+        = render partial: 'tag', collection: @tags

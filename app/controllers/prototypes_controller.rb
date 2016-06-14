@@ -4,7 +4,7 @@ class PrototypesController < ApplicationController
   before_action :set_prototype, only: [:edit, :show, :update, :destroy]
 
   def index
-    @prototypes = Prototype.includes(:user, :main_image).order('created_at DESC').page(params[:page]).per(5)
+    @prototypes = Prototype.includes(:user, :main_image).order('created_at DESC').page(params[:page]).per(20)
     @type = 'newest'
   end
 
@@ -60,7 +60,7 @@ class PrototypesController < ApplicationController
       :concept,
       :user_id,
       images_attributes: [:id, :name, :status]
-    )
+    ).merge(tag_list: params[:prototype][:tag])
   end
 
   def set_prototype

@@ -8,6 +8,9 @@ class Prototype < ActiveRecord::Base
 
   accepts_nested_attributes_for :images, reject_if: proc { |attributes| attributes['name'].blank? }
 
+  acts_as_taggable
+  acts_as_ordered_taggable_on :prototypes
+
   MAXIMUM_SUB_IMAGES_NUM = 3
   def sub_image
     sub_images = images.sub
