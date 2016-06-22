@@ -11,7 +11,7 @@
           = f.text_field :title, autofocus: true, placeholder: "Title", class: "proto-new-title", required: true
       .row
         .col-md-12
-          .cover-image-upload
+          .cover-image-upload.js-preview-image
             = f.fields_for :images do |images_form|
               = images_form.file_field :name, class: "cover-image-upload"
               = images_form.hidden_field :status, value: "main"
@@ -19,7 +19,7 @@
           %ul.proto-sub-list.list-group
             - 3.times do
               %li.list-group-item.col-md-4
-                .image-upload
+                .image-upload.js-preview-image
                   = f.fields_for :images do |images_form|
                     = images_form.file_field :name, class: "image-upload"
                     = images_form.hidden_field :status, value: "sub"

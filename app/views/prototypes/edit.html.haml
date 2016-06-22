@@ -11,7 +11,7 @@
           = f.text_field :title, autofocus: true, placeholder: "Title", class: "proto-new-title", required: true
       .row
         .col-md-12
-          .cover-image-upload
+          .cover-image-upload.js-preview-image
             = f.fields_for :images, @main_image do |images_form|
               = images_form.file_field :name, class: "cover-image-upload"
               = images_form.hidden_field :status, value: "main"
@@ -19,7 +19,7 @@
           %ul.proto-sub-list.list-group
             = f.fields_for :images, @sub_images do |images_form|
               %li.list-group-item.col-md-4
-                .image-upload
+                .image-upload.js-preview-image
                   = images_form.file_field :name, class: "image-upload"
                   = images_form.hidden_field :status, value: "sub"
           .row.proto-description
@@ -31,10 +31,10 @@
             %h4 Tag List
             .row
               .col-md-3
-                %input{type: "text", placeholder: "Web Design"}/
+                = text_field_tag "prototype[tag][]", "", placeholder: "Web Design"
               .col-md-3
-                %input{type: "text", placeholder: "UI"}/
+                = text_field_tag "prototype[tag][]", "", placeholder: "UI"
               .col-md-3
-                %input{type: "text", placeholder: "Application"}/
+                = text_field_tag "prototype[tag][]", "", placeholder: "Application"
       .row.text-center.proto-btn
         = f.submit "Publish", class: 'btn btn-lg btn-primary btn-block'
