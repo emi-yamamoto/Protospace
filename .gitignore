@@ -16,3 +16,9 @@
 *.jpg
 *.jpeg
 *.gif
+
+config/settings.yml
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
+vendor/bundle/ruby/2.3.0
