@@ -22,10 +22,20 @@ gem 'config'
 
 group :development, :test do
   gem 'byebug'
+  gem "rspec-rails"         #Rails 専用の機能を追加するRSpecのラッパーライブラリ
+  gem "factory_girl_rails"  #テストデータを作成する
 end
 
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'erb2haml'
+end
+
+group :test do
+  gem "faker"               #名前やメールアドレス、その他のプレースホルダなどをダミーデータ生成
+  gem "capybara"            #ユーザーとWebアプリケーションのやり取りをプログラム上で簡単にシュミレートを可能にする
+  gem "database_cleaner"    #データベースをまっさらな状態で各specが実行できるようにする
+  gem "launchy"             #テストのデバック用
+  gem "poltergeist"         #capybaraのためのドライバ
 end
