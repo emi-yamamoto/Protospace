@@ -10,9 +10,7 @@ FactoryGirl.define do
       comments_count 5
     end
     after(:create) do |prototype, evaluator|
-      evaluator.comments_count.times do
-        prototype.comments.create!
-      end
+      prototype.comments << create_list(:comment, evaluator.comments_count)
     end
   end
 
@@ -21,9 +19,7 @@ FactoryGirl.define do
       likes_count 5
     end
     after(:create) do |prototype, evaluator|
-      evaluator.likes_count.times do
-        prototype.likes.create!
-      end
+      prototype.likes << create_list(:like, evaluator.likes_count)
     end
   end
 
