@@ -3,6 +3,8 @@ FactoryGirl.define do
     title { Faker::Lorem.words }
     catch_copy { Faker::Lorem.words }
     concept { Faker::Lorem.sentence }
+    main_image
+    user
   end
 
   trait :prototype_with_comments do
