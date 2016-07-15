@@ -2,6 +2,12 @@ require 'rails_helper'
 
 describe Prototype do
   describe 'associations' do
+    it 'is associated with image' do
+      image = create(:main_image)
+      prototype = create(:prototype, main_image: image)
+      expect(prototype.main_image).to eq image
+    end
+
     describe 'with comments' do
       let!(:prototype){ create(:prototype, :prototype_with_comments, comments_count: 1) }
       it 'is deletes the comments when prototype is deleted' do
