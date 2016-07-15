@@ -70,7 +70,7 @@ describe Prototype do
   describe '#sub_image' do
     it "returns an array containing sub_images" do
       prototype = create(:prototype, :with_sub_images)
-      expect(prototype.sub_image).to eq prototype.images
+      expect(prototype.sub_image).to eq prototype.sub_images
     end
   end
 
