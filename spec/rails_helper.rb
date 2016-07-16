@@ -56,4 +56,14 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  config.include FactoryGirl::Syntax::Methods
+
+  # paperclip file uploadテスト用
+  # rspec内で、ファイルアップロードのテストに使用する
+  config.include ActionDispatch::TestProcess
+
+  # factoryGirl内での呼び出し
+  FactoryGirl::SyntaxRunner.class_eval do
+    include ActionDispatch::TestProcess
+  end
 end
