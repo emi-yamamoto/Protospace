@@ -66,4 +66,6 @@ RSpec.configure do |config|
   FactoryGirl::SyntaxRunner.class_eval do
     include ActionDispatch::TestProcess
   end
+
+  config.include Devise::TestHelpers, :type => :controller
 end
