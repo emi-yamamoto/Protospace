@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :prototype do
-    title { Faker::Lorem.words }
-    catch_copy { Faker::Lorem.words }
+    title { Faker::Name.name }
+    catch_copy { Faker::Name.name }
     concept { Faker::Lorem.sentence }
     main_image
     user
