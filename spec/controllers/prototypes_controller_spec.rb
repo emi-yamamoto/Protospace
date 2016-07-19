@@ -4,7 +4,7 @@ describe PrototypesController do
    let!(:prototype) { create(:prototype, :with_sub_images) }
    let(:params) {{
      id: prototype.id,
-     prototype: attributes_for(:prototype, title: 'hoge', images_attributes: [id: prototype.main_image.id, name: 'sample.jpg', status: prototype.main_image.status])
+     prototype: attributes_for(:prototype, title: 'hoge')
    }}
    let(:invalid_params) {{
      id: prototype.id,
@@ -87,9 +87,10 @@ describe PrototypesController do
         expect(assigns(:comment)).to be_a_new(Comment)
       end
 
-      it 'assigns likes associated with prototype to @likes' do
+      it 'assigns like associated with prototype to @like' do
+        user = prototype.user
         get :show, id: prototype
-        expect(assigns(:likes)).to eq prototype.likes
+        expect(assigns(:like)).to eq prototype.likes.find_by(user_id: user.id)
       end
 
       it 'renders the :show template' do
