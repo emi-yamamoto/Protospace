@@ -6,6 +6,10 @@ describe UsersController do
     id: user.id,
     user: attributes_for(:user, name: 'hoge')
   }}
+  let(:invalid_params) {{
+    id: user.id,
+    user: attributes_for(:user, name: nil)
+  }}
 
   describe 'with user login' do
     before { sign_in create(:user) }
@@ -34,26 +38,52 @@ describe UsersController do
     end
 
     describe 'PATCH #update' do
-      it "locates the requersted @user" do
-        patch :update, params
-        expect(assigns(:user)).to eq user
+      context 'with valid attributes' do
+        it "locates the requersted @user" do
+          patch :update, params
+          expect(assigns(:user)).to eq user
+        end
+
+        it "changes @user's attributes" do
+          patch :update, params
+          user.reload
+          expect(user.name).to eq("hoge")
+        end
+
+        it "redirects to user_path" do
+          patch :update, params
+          expect(response).to redirect_to root_path
+        end
+
+        it "sends flash messages" do
+          patch :update, params
+          expect(response).to redirect_to root_path
+          expect(flash[:notice]).to eq 'Edited profile successfully'
+        end
       end
 
-      it "changes @user's attributes" do
-        patch :update, params
-        user.reload
-        expect(user.name).to eq("hoge")
-      end
+      context 'with invalid attributes' do
+        it "locates the requersted @user" do
+          patch :update, invalid_params
+          expect(assigns(:user)).to eq user
+        end
 
-      it "redirects to user_path" do
-        patch :update, params
-        expect(response).to redirect_to root_path
-      end
+        it "does not changes @user's attributes" do
+          patch :update, invalid_params
+          user.reload
+          expect(user.name).not_to eq("hoge")
+        end
 
-      it "sends flash messages" do
-        patch :update, params
-        expect(response).to redirect_to root_path
-        expect(flash[:notice]).to eq 'Edited profile successfully'
+        it "redirects to edit_user_path" do
+          patch :update, invalid_params
+          expect(response).to redirect_to edit_user_path
+        end
+
+        it 'shows flash message to show update prototype unsuccessfully' do
+          patch :update, invalid_params
+          user.reload
+          expect(flash[:alert]).to eq "All forms can't be blank"
+        end
       end
     end
   end

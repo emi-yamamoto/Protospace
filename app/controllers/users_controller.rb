@@ -10,8 +10,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(user_params)
-    redirect_to :root, notice: 'Edited profile successfully'
+    if @user.update(user_params)
+      redirect_to :root, notice: 'Edited profile successfully'
+    else
+      redirect_to edit_user_path, alert: "All forms can't be blank"
+    end
   end
 
   def show
